@@ -17,13 +17,13 @@ h1, h2 {
 }
 
 /* Container styles */
-#login-section, #calendar-section {
+#calendar-section {
     border: 1px solid #004f7c;
     padding: 20px;
     border-radius: 10px;
     background-color: #ffffff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 300px; /* Consistent width for forms */
+    width: 400px;
     max-width: 100%;
 }
 
@@ -111,7 +111,7 @@ button:hover {
 
 /* Responsive design */
 @media (max-width: 600px) {
-    #login-section, #calendar-section {
+    #calendar-section {
         width: 90%; /* Use more of the available width on smaller screens */
     }
 

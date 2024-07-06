@@ -1,42 +1,10 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const loginForm = document.getElementById('login-form');
-    const loginSection = document.getElementById('login-section');
-    const calendarSection = document.getElementById('calendar-section');
     const eventForm = document.getElementById('event-form');
-    const logoutButton = document.getElementById('logout');
 
-    loginForm.addEventListener('submit', (event) => {
-        event.preventDefault();
+    // Load events on page load
+    loadEvents();
 
-        const formData = new FormData(loginForm);
-        formData.append('action', 'login');
-
-        fetch('server.php', {
-            method: 'POST',
-            body: formData,
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-                loginSection.style.display = 'none';
-                calendarSection.style.display = 'block';
-                loadEvents();
-            } else {
-                alert(data.message || 'Login failed');
-            }
-        })
-        .catch(error => console.error('Error:', error));
-    });
-
-    logoutButton.addEventListener('click', () => {
-        loginSection.style.display = 'block';
-        calendarSection.style.display = 'none';
-        fetch('server.php', {
-            method: 'POST',
-            body: new URLSearchParams({ action: 'logout' }),
-        });
-    });
-
+    // Event listener for form submission
     eventForm.addEventListener('submit', (event) => {
         event.preventDefault();
         const formData = new FormData(eventForm);
@@ -58,6 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
         .catch(error => console.error('Error:', error));
     });
 
+    // Function to load events
     function loadEvents() {
         const formData = new FormData();
         formData.append('action', 'get_events');
@@ -77,6 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
         .catch(error => console.error('Error:', error));
     }
 
+    // Function to display events
     function displayEvents(events) {
         const calendar = document.getElementById('calendar');
         calendar.innerHTML = '';
@@ -95,6 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    // Attach edit and delete functions to the window object
     window.editEvent = (id, title, description, date) => {
         document.getElementById('event_id').value = id;
         document.getElementById('title').value = title;
