@@ -1,0 +1,121 @@
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f8ff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+}
+
+h1, h2 {
+    color: #004f7c;
+    text-align: center;
+}
+
+/* Container styles */
+#login-section, #calendar-section {
+    border: 1px solid #004f7c;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px; /* Consistent width for forms */
+    max-width: 100%;
+}
+
+/* Form styles */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-top: 10px;
+    font-weight: bold;
+    color: #004f7c;
+}
+
+input, textarea, button {
+    margin-top: 5px;
+    padding: 10px;
+    border: 1px solid #004f7c;
+    border-radius: 5px;
+}
+
+input, textarea {
+    width: calc(100% - 22px); /* Ensures elements don't exceed container width */
+    box-sizing: border-box;
+}
+
+textarea {
+    resize: none;
+    height: 80px;
+}
+
+button {
+    margin-top: 20px;
+    background-color: #004f7c;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #003f63;
+}
+
+/* Event list styles */
+#calendar {
+    margin-top: 20px;
+}
+
+.event {
+    background-color: #b0d8e0;
+    border: 1px solid #004f7c;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.event h3 {
+    margin: 0 0 5px 0;
+    color: #004f7c;
+}
+
+.event p {
+    margin: 5px 0;
+    color: #004f7c;
+}
+
+.event button {
+    margin-top: 10px;
+    margin-right: 5px;
+    background-color: #004f7c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.event button:hover {
+    background-color: #003f63;
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+    #login-section, #calendar-section {
+        width: 90%; /* Use more of the available width on smaller screens */
+    }
+
+    .event {
+        font-size: 14px;
+    }
+}
